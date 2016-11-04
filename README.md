@@ -1,7 +1,15 @@
-# xVisualStudio
+# xVisualStudio 
 A DSC Resource to install / uninstall visual studio
 
+Version: 1.0.0
+
+Will be release to PSGallery soon!
+
 NB: Uninstalling of VS Code does not work yet.
+
+Note: Installing Enterprise/Pro without installation args will add /Full installation
+
+
 
 ## How to use
 
@@ -50,3 +58,24 @@ Configuration InstallVS {
 }
 ``` 
 
+
+## Install using specific installer arguments
+
+```powershell 
+Configuration InstallVS {
+    Node localhost {
+
+        xSetupVisualStudio installVSCode {
+            Ensure='Present'
+            ProductName='Visual Studio 2015 Enterprise'
+            ProductKey = 'xxxx-xxxx-xxxx-xxxx' # GUID
+            SetupFile = 'c:\tmp\vs_installer.exe'
+            InstallationArgs = '/InstallSelectableItems <items>'
+        }
+    }
+}
+``` 
+
+## Other supported features
+
+AdminDeploymentFile - If installing VS professional or enterprise you can give it an admin file for installation using this param
