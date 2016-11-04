@@ -50,7 +50,7 @@ class xSetupVisualStudio
                         $this.SetupFile = 'https://go.microsoft.com/fwlink/?LinkID=623230'
                     }
                     default { 
-                        $this.SetupFile  = 'https://www.visualstudio.com/post-download-vs/?sku=ent&clcid=0x409&telem=ga#'
+                        $this.SetupFile  = 'https://download.microsoft.com/download/D/2/8/D28D3B41-BF4A-409A-AFB5-2C82C216D4E1/vs_professional_ENU.exe'
                     }
                 }
                 

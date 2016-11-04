@@ -6,10 +6,8 @@ Configuration InstallVS2015 {
     Node localhost {
         
         xSetupVisualStudio installVisualStudio {
-            ProductName = 'Visual studuio 2015 Enterprise'
-            Version = 'VS2015Enterprise'
-            Ensure = 'Present'
-                      
+            ProductName = 'Visual Studio 2015 Enterprise'
+            Ensure = 'Present'                      
         }
 
     }
