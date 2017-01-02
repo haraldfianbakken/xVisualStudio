@@ -35,7 +35,7 @@ Configuration InstallVS {
 
         xSetupVisualStudio installVSCode {
             Ensure='Present'
-            ProductName='Visual Studio 2015 Enterprise'
+            ProductName='Microsoft Visual Studio Enterprise 2015'
             ProductKey = 'xxxx-xxxx-xxxx-xxxx' # GUID
         }
     }
@@ -50,7 +50,7 @@ Configuration InstallVS {
 
         xSetupVisualStudio installVSCode {
             Ensure='Present'
-            ProductName='Visual Studio 2015 Enterprise'
+            ProductName='Microsoft Visual Studio Enterprise 2015'
             ProductKey = 'xxxx-xxxx-xxxx-xxxx' # GUID
             SetupFile = 'c:\tmp\vs_installer.exe'
         }
@@ -69,7 +69,7 @@ Configuration InstallVS {
 
         xSetupVisualStudio installVSCode {
             Ensure='Present'
-            ProductName='Visual Studio 2015 Enterprise'
+            ProductName='Microsoft Visual Studio Enterprise 2015'
             ProductKey = 'xxxx-xxxx-xxxx-xxxx' # GUID
             SetupFile = 'c:\tmp\vs_installer.exe'
             InstallationArgs = '/InstallSelectableItems <items>'

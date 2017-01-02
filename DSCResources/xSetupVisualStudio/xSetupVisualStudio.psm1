@@ -9,7 +9,7 @@ class xSetupVisualStudio
 {
 
        [DscProperty(Key)]
-       [ValidateSet('Visual Studio 2015 Enterprise','Visual Studio 2015 Professional','Microsoft Visual Studio Code')]
+       [ValidateSet('Microsoft Visual Studio Enterprise 2015','Microsoft Visual Studio Professional 2015','Microsoft Visual Studio Code')]
        [string] $ProductName
 
        [DscProperty()]
@@ -40,10 +40,10 @@ class xSetupVisualStudio
             {
                 
                 switch -Exact ($this.ProductName){
-                    'Visual Studio 2015 Enterprise'  {
+                    'Microsoft Visual Studio Enterprise 2015'  {
                         $this.SetupFile = 'https://download.microsoft.com/download/C/7/8/C789377D-7D49-4331-8728-6CED518956A0/vs_enterprise_ENU.exe'
                     }
-                    'Visual Studio 2015 Professional' {
+                    'Microsoft Visual Studio Professional 2015' {
                         $this.SetupFile = 'https://download.microsoft.com/download/D/2/8/D28D3B41-BF4A-409A-AFB5-2C82C216D4E1/vs_professional_ENU.exe'
                     }
                     'Microsoft Visual Studio Code' {
@@ -80,17 +80,14 @@ class xSetupVisualStudio
 
        [xSetupVisualStudio] Get()
        {
-            Write-Debug "Getting package";
-            $vsPackage = $this.GetInstalledSoftwares() |? {$_.DisplayName -eq $this.ProductName}
-            if(($this.Ensure -eq [Ensure]::Present) -and $vsPackage)
-            {
-                $this.IsValid = $true
+            Write-Debug "Getting package";                        
+            $this.Ensure = [Ensure]::Absent;            
+
+            if($this.HasInstalledApp($this.ProductName)){
+                $this.Ensure = [Ensure]::Present;
             }
-            else
-            {
-               $this.IsValid = $false
-            }
-            return $this
+            return $this;            
+
        }
 
        [void] Set()
@@ -123,7 +120,8 @@ class xSetupVisualStudio
                     Start-Process -FilePath $this.SetupFile -ArgumentList $args -Wait -NoNewWindow       
                     Write-Verbose "Uninstalled VS successfully" 
                 } else {
-                    
+                    Write-Error 'Uninstalling VS full edition is not supported yet'
+
                 }
             }
        }
