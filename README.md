@@ -28,7 +28,7 @@ Configuration InstallVS {
 ```
 
 
-## Install VS 2015 enterprise using online installer'
+## Install VS 2015 enterprise using online installer
 ```powershell
 Configuration InstallVS {
     Node localhost {
@@ -60,6 +60,8 @@ Configuration InstallVS {
 
 
 ## Install using specific installer arguments
+Because the full installation takes a lot of time and will make your DSC be stuck in applying for a long time while installing VS full. 
+If you're interested in specific features only, install using this
 
 ```powershell 
 Configuration InstallVS {
