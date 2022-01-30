@@ -1,4 +1,4 @@
-Import-Module "..\DSCResources\xSetupVisualStudio\xSetupVisualStudio.psm1" -Force -Global
+Import-Module "..\..\DSCResources\xSetupVisualStudio\xSetupVisualStudio.psm1" -Force -Global
 
 # Test install visual studio code
 $s  = [xSetupVisualStudio]::new()
@@ -11,7 +11,6 @@ if(-not $isPresent){
 }
 
 # Test to install visual studio enterprise
-
 
 $s  = [xSetupVisualStudio]::new()
 $s.Ensure = 'Present';
